@@ -44,5 +44,5 @@ button.addEventListener("click", async (evt) => {
     let rate = data[fromCurr.value.toLowerCase()];
     let newRate = rate[toCurr.value.toLowerCase()];
     let conveteredVal = amtValue * newRate
-    msg.innerText = `${amtValue} ${fromCurr.value} = ${conveteredVal} ${toCurr.value}`;
+    msg.innerText = `${amtValue} ${fromCurr.value} = ${conveteredVal.toFixed(2)} ${toCurr.value}`;
 })
