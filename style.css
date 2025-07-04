@@ -56,9 +56,16 @@ form input {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 6rem;
+    width: 7rem;
+    padding: 0 0.5rem;
+    position: relative;
     border-radius: 0.5rem;
     border: 1px solid #ccc;
+}
+
+.choices {
+    flex-grow: 1;
+    margin-left: 0.5rem;
 }
 
 .dropdown i {
@@ -87,4 +94,23 @@ form button {
 
 form button:hover {
     background-color: #0056b3;
+}
+
+.choices__inner {
+    border: none !important;
+    background-color: white !important;
+    border-radius: 0.5rem !important;
+    padding-right: 1.5rem !important;
+    min-height: 2rem;
+    width: 50% !important;
+}
+
+.choices__list--single {
+    padding: 0 !important;
+    margin-top: 15px !important;
+}
+
+.choices__list--dropdown,
+.choices__list[aria-expanded] {
+    width: 100% !important;
 }

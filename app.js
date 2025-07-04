@@ -18,8 +18,14 @@ for (let select of dropdowns) {
         }
         select.append(newOption);
     }
-    select.addEventListener("change", (evt) => {
-        updateFlag(evt.target);
+
+    select.addEventListener("change", () => {
+        updateFlag(select);
+    });
+
+    new Choices(select, {
+        searchEnabled: true,
+        itemSelectText: "",
     });
 }
 
@@ -27,7 +33,8 @@ const updateFlag = (element) => {
     let currCode = element.value;
     let countryCode = countryList[currCode];
     let newSrc = `https://flagsapi.com/${countryCode}/shiny/64.png`
-    element.parentElement.querySelector("img").src = newSrc;
+    let selectType = element.dataset.select;
+    document.querySelector(`img[data-flag="${selectType}"]`).src = newSrc;
 }
 
 button.addEventListener("click", async (evt) => {
@@ -35,14 +42,17 @@ button.addEventListener("click", async (evt) => {
     let amount = document.querySelector(".amount input");
     let amtValue = amount.value;
     if (amtValue === "" || amtValue < 1) {
-        amtValue = 1;
-        amount.value = 1;
+        amount.value = "";
+        alert("Please enter the valid input")
     }
-    const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}.json`;
-    let response = await fetch(URL);
-    let data = await response.json();
-    let rate = data[fromCurr.value.toLowerCase()];
-    let newRate = rate[toCurr.value.toLowerCase()];
-    let conveteredVal = amtValue * newRate
-    msg.innerText = `${amtValue} ${fromCurr.value} = ${conveteredVal.toFixed(2)} ${toCurr.value}`;
+
+    if (amtValue >= 1) {
+        const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}.json`;
+        let response = await fetch(URL);
+        let data = await response.json();
+        let rate = data[fromCurr.value.toLowerCase()];
+        let newRate = rate[toCurr.value.toLowerCase()];
+        let conveteredVal = amtValue * newRate
+        msg.innerText = `${amtValue} ${fromCurr.value} = ${conveteredVal.toFixed(2)} ${toCurr.value}`;
+    }
 })

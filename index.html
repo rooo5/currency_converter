@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
 </head>
 
 <body>
@@ -23,8 +24,8 @@
                 <div class="from">
                     <p>From</p>
                     <div class="select-container">
-                        <img src="https://flagsapi.com/US/shiny/64.png" alt="" />
-                        <select name="from">
+                        <img data-flag="from" src="https://flagsapi.com/US/shiny/64.png" alt="" />
+                        <select name="from" data-select="from">
                         </select>
                     </div>
                 </div>
@@ -32,8 +33,8 @@
                 <div class="to">
                     <p>To</p>
                     <div class="select-container">
-                        <img src="https://flagsapi.com/IN/shiny/64.png" alt="" />
-                        <select name="to">
+                        <img data-flag="to" src="https://flagsapi.com/IN/shiny/64.png" alt="" />
+                        <select name="to" data-select="to">
                         </select>
                     </div>
                 </div>
@@ -42,6 +43,7 @@
             <button id="button">Get Exchange Rate</button>
         </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="codes.js"></script>
     <script src="app.js"></script>
 </body>
