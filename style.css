@@ -54,9 +54,9 @@ form input {
 
 .select-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 7rem;
+    width: 6.5rem;
     padding: 0 0.5rem;
     position: relative;
     border-radius: 0.5rem;
@@ -102,7 +102,7 @@ form button:hover {
     border-radius: 0.5rem !important;
     padding-right: 1.5rem !important;
     min-height: 2rem;
-    width: 50% !important;
+    width: 55% !important;
 }
 
 .choices__list--single {
@@ -113,4 +113,13 @@ form button:hover {
 .choices__list--dropdown,
 .choices__list[aria-expanded] {
     width: 100% !important;
+}
+
+.choices__list--dropdown {
+    top: 100% !important;
+    bottom: auto !important;
+    margin-top: 0.2rem !important;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 200px !important;
 }
